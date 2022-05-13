@@ -4,25 +4,24 @@
 
 // Рекурсия - это когда функция вызывает сама себя внутри себя же
 
-function pow(x, n) {
-    let result = 1;
+function pow (x,n) {
+   let result = 1;
 
-    for (let i = 0; i < n; i++) {
-        result *= x;
-    }
+   for(let i = 0; i < n; i++){
+       result *= x;
+   }
 
-    return result;
-}
+   return result;
+};
 
-function pow(x, n) {
-    if (n === 1) {
+function pow(x , n ) {
+    if(n === 1) {
         return x; // - база рекурсии
     } else {
-        return x * pow(x, n - 1); // - шаг рекурсии
+        return x * pow (x, n - 1);
     }
-}
+};
 
-console.log(pow(2, 5));
 
 let students = {
     js: [{
@@ -50,28 +49,5 @@ let students = {
     }
 };
 
-function getTotalProgressByIteration(data) {
-    let total = 0;
-    let students = 0;
 
-    for (let course of Object.values(data)) {
-        if (Array.isArray(course)) {
-            students += course.length;
 
-            for (let i = 0; i < course.length; i++) {
-                total += course[i].progress;
-            }
-        } else {
-            for (let subCourse of Object.values(course)) {
-                students += subCourse.length;
-                for (let i = 0; i < subCourse.length; i++) {
-                    total += subCourse[i].progress;
-                }
-            }
-        }
-    }
-
-    return total / students;
-}
-
-console.log(getTotalProgressByIteration(students));
